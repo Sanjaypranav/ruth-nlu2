@@ -152,10 +152,10 @@ def get_local_model(model_path: Text = DEFAULT_MODELS_PATH) -> Text:
         model_path = get_latest_model(model_path)
         if not model_path:
             raise ModelNotFound(
-                f"Could not find any Rasa model files in '{model_path}'."
+                f"Could not find any Ruth model files in '{model_path}'."
             )
     elif not model_path.endswith(".tar.gz"):
-        raise ModelNotFound(f"Path '{model_path}' does not point to a Rasa model file.")
+        raise ModelNotFound(f"Path '{model_path}' does not point to a Ruth model file.")
 
     return model_path
 
@@ -210,7 +210,7 @@ def get_latest_model(model_path: Text = DEFAULT_MODELS_PATH) -> Optional[Text]:
 def unpack_model(
     model_file: Text, working_directory: Optional[Union[Path, Text]] = None
 ) -> TempDirectoryPath:
-    """Unpack a zipped Rasa model.
+    """Unpack a zipped Ruth model.
 
     Args:
         model_file: Path to zipped model.
@@ -218,7 +218,7 @@ def unpack_model(
                            If `None` a temporary directory will be created.
 
     Returns:
-        Path to unpacked Rasa model.
+        Path to unpacked Ruth model.
 
     """
     import tarfile
@@ -245,7 +245,7 @@ def get_model_subdirectories(
     If neither directories exist, a `ModelNotFound` exception is raised.
 
     Args:
-        unpacked_model_path: Path to unpacked Rasa model.
+        unpacked_model_path: Path to unpacked Ruth model.
 
     Returns:
         Tuple (path to Core subdirectory if it exists or `None` otherwise,
@@ -276,7 +276,7 @@ def create_package_rasa(
     output_filename: Text,
     fingerprint: Optional[Fingerprint] = None,
 ) -> Text:
-    """Create a zipped Rasa model from trained model files.
+    """Create a zipped Ruth model from trained model files.
 
     Args:
         training_directory: Path to the directory which contains the trained
@@ -482,7 +482,7 @@ def should_retrain(
             has not changed.
 
     Returns:
-        A FingerprintComparisonResult object indicating whether Rasa Core and/or Rasa
+        A FingerprintComparisonResult object indicating whether Ruth Core and/or Ruth
         NLU needs to be retrained or not.
     """
     fingerprint_comparison = FingerprintComparisonResult()
@@ -597,7 +597,7 @@ def package_model(
     create_package_rasa(train_path, output_directory, fingerprint)
 
     print_success(
-        "Your Rasa model is trained and saved at '{}'.".format(
+        "Your ruth model is trained and saved at '{}'.".format(
             os.path.abspath(output_directory)
         )
     )

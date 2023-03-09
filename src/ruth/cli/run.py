@@ -33,7 +33,7 @@ def add_subparser(
         parents=parents,
         conflict_handler="resolve",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        help="Starts a Rasa server with your trained model.",
+        help="Starts a ruth server with your trained model.",
     )
     run_parser.set_defaults(func=run)
 
