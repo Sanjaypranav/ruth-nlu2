@@ -1,0 +1,4 @@
+event_broker:
+  client_id: kafka-python-ruth
+  security_protocol: PLAINTEXT
+  type: kafka

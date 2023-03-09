@@ -1,0 +1,12 @@
+# Configuration for ruth NLU.
+# https://ruth.com/docs/ruth/components
+language: en
+pipeline:
+  - name: KeywordIntentClassifier
+  - name: RegexEntityExtractor
+
+# Configuration for ruth Core.
+# https://ruth.com/docs/ruth/policies
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
